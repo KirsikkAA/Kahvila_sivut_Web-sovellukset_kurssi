@@ -1,6 +1,5 @@
 :root {
 --color-text: #1f2937;
---color-accent: #b45309; /* kahvin sävy */
 --space: 1rem;
 }
 html { font-size: 16px; }
@@ -25,6 +24,7 @@ nav {
   border-radius: 8px; 
   margin-bottom: 1rem;
 }
+
 
 body {background-color: rgb(226, 252, 254);}
 
@@ -91,3 +91,87 @@ padding: calc(var(--space) * .50);
 border: 1px solid #000000;
 background: #def1f7;
 }
+
+
+
+
+.tuotteet-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space);
+}
+
+.cards{
+display:grid;
+grid-template-columns:1fr;
+gap:1rem;
+}
+
+@media (min-width:700px){
+.cards{grid-template-columns:repeat(2,1fr);}}
+@media (min-width:1000px){
+.cards{grid-template-columns:repeat(3,1fr);}}
+
+.card{
+display:flex;
+flex-direction:column;
+gap:.75rem;
+margin-top:1rem;
+padding-left: 0.6rem;
+}
+
+.card img{
+width:100%;
+height:auto;
+object-fit: cover;
+border-radius: 0.5rem;
+}
+
+.card .actions{
+  margin-top:auto;
+  display:flex;
+  justify-content:flex-end;
+}
+
+.card .price {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+nav > ul > li + li{
+  margin-left:1rem;
+
+}
+
+/*.cards .card + .card{
+  margin-top:1rem;
+  padding-left: 0.6rem;
+}  mobiili pystymarginaali */
+
+.card h3 {
+  position:relative;
+  padding-top: 1em;
+}
+
+.card h3.badge::before{
+  content:"Uutuus";
+  position:absolute;
+  top:-0.10rem;
+  font-size:.7rem;
+  opacity:.8;
+}
+
+.card{transition:transform .15s ease, box-shadow .15s ease;}
+
+.card:hover,.card:focus-within{
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+
+:root{--space:1rem;
+  --color-text:#1f2937;
+  --accent:#d47210;}
+
+  body{font-family:system-ui,
+    sans-serif;line-height:1.5;
+    color:var(--color-text);}
